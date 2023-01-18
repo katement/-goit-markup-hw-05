@@ -38,7 +38,7 @@
         <!--HERO-->
         <section class="hero-container overlay"><div class="container">
             <h1 class="main-heading-1">Effective Solutions for Your Business</h1>
-            <button class="main-button" type="button">Order Service</button>
+            <button data-open-modal class="main-button" type="button">Order Service</button>
          </div> </section>
    
     <!--FEATURES-->
@@ -294,5 +294,34 @@
 </div>
 
 </footer>
+<div class="backdrop is-hidden" data-backdrop>
+    <div class="modal">
+        <p>
+
+        </p>
+        <button data-close-modal class="close-button">
+            <svg class="" width="8px" height="8px"> <use href="./images/close-black-18dp.svg"></use>
+                 </svg>
+        </button>
+    </div>
+</div>
+<script>
+    const refs={
+        openModalBtn: document.querySelector("[data-open-modal]"),
+        closeModalBtn: document.querySelector("[data-close-modal]"),
+        backdrop: document.querySelector("[data-backdrop]"),
+    };
+    refs.openModalBtn.addEventListener("click", toggleModal);
+    refs.closeModalBtn.addEventListener("click", toggleModal);
+    refs.backdrop.addEventListener("click", logBackdropClick);
+    function toggleModal() {
+        refs.backdrop.classList.toggle("is-hidden");
+    }
+    function logBackdropClick(){
+        console.log("Это клик в бэкдроп");
+    }
+
+
+</script>
 </body>
 </html>
